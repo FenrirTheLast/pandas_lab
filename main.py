@@ -108,3 +108,15 @@ wykres.legend()
 wykres.set_title('Populacja z podzialem na kontynenty')
 plt.savefig('wykres.png')
 plt.show()
+
+df = pd.read_csv('dane.csv', header=0, sep=";",
+                 decimal=".")
+print(df)
+grupa = (df.groupby(['Imię i nazwisko'])
+         .agg({"Wartość zamówienia":['sum']}))
+grupa.plot(kind='pie', subplots=True, autopct='%.2f %%',
+           fontsize=20, figsize=(6,6), colors=['red','green'])
+
+plt.legend(loc='lower right')
+plt.title('Suma zamówień dla sprzedawcy')
+plt.show()
