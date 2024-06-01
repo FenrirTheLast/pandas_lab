@@ -32,7 +32,31 @@ print(df.sample())
 print(df.sample(2))
 print(df.sample(frac=0.5))
 print(df.sample(n=10, replace=True))
+print(df.head())
 print(df.head(2))
 print(df.tail(1))
 print(df.describe())
 print(df.T)
+
+
+print(s[(s>9)])
+print(s.where(s > 10))
+print(s.where(s>10, "za duże"))
+seria = s.copy()
+seria.where(seria> 10, 'za duże', inplace=True)
+print("##########")
+print(seria)
+
+print(s[~(s > 10)])
+
+print(s[(s > 13) & (s > 8)])
+
+print(df[(df.Populacja > 1000000) & (df.index.isin([0,2]))])
+print('#############')
+szukaj = ['Belgia', 'Brasilia']
+print(df.isin(szukaj))
+
+s['e'] = 15
+print(s.e)
+s['f']=16
+print(s)
