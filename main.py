@@ -51,12 +51,24 @@ print(s[~(s > 10)])
 
 print(s[(s > 13) & (s > 8)])
 
-print(df[(df.Populacja > 1000000) & (df.index.isin([0,2]))])
+print(df[(df.Populacja > 1000000) & (df.index.isin([0, 2]))])
 print('#############')
 szukaj = ['Belgia', 'Brasilia']
 print(df.isin(szukaj))
 
 s['e'] = 15
 print(s.e)
-s['f']=16
+s['f'] = 16
 print(s)
+
+
+df.loc[3] = 'dodane'
+print(df)
+df.loc[4] = ['Polska', 'Warszawa', 38675467]
+print(df)
+
+new_df = df.drop([3])
+print(new_df)
+
+df.drop([3], inplace=True)
+print(df)
