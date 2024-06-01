@@ -72,3 +72,14 @@ print(new_df)
 
 df.drop([3], inplace=True)
 print(df)
+
+# df.drop('kraj', axis=1, inplace=True)
+
+df['Kontynent'] = ['Europa', 'Azja',
+                   'Ameryka Południowa', 'Europa']
+print(df)
+
+print(df.sort_values(by='Kraj'))
+grouped = df.groupby(['Kontynent'])
+print(grouped.get_group('Europa'))
+print(df.groupby(['Kontynent']).agg({'Populacja':['sum']}))
