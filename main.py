@@ -120,3 +120,12 @@ grupa.plot(kind='pie', subplots=True, autopct='%.2f %%',
 plt.legend(loc='lower right')
 plt.title('Suma zamówień dla sprzedawcy')
 plt.show()
+
+ts = pd.Series(np.random.randn(1000))
+ts = ts.cumsum()
+df = pd.DataFrame(ts, columns=['wartości'])
+print(df)
+df['Średnia krocząca'] = df.rolling(window=20).mean()
+df.plot()
+plt.legend()
+plt.show()
